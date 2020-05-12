@@ -10,7 +10,8 @@ import static java.util.Collections.singletonList;
 import org.netbeans.modules.preprolanguagesupport.prepro.FileType;
 
 /**
- * Register parser tasks for PrePro
+ * Register notification result tasks for PrePro
+ * task is used to notify user about syntax errors
  * @author Paula
  */
 

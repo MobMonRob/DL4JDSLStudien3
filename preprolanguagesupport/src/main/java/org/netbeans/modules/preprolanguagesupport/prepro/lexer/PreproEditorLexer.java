@@ -62,13 +62,13 @@ public final class PreproEditorLexer implements Lexer<PreproTokenId> {
 
     @Override
     public void release() {
-        //nothing todo
+        //not implemented
     }
 
     private static class TokenSupplier implements Supplier<org.antlr.v4.runtime.Token> {
 
         private final PreProLexer lexer;
-
+        // tunnel editor Input to antlr
         TokenSupplier(LexerInput input) {
             CharStream stream = new LexerCharStream(input);
             lexer = new PreProLexer(stream);

@@ -27,7 +27,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.netbeans.modules.preprolanguagesupport.prepro.PreProResource;
+import org.netbeans.modules.preprolanguagesupport.prepro.PreProNode;
 import org.netbeans.modules.preprolanguagesupport.prepro.parser.PreProProxyParser.PreProParserResult;
 import org.netbeans.modules.parsing.api.Snapshot;
 import org.netbeans.modules.parsing.api.Source;
@@ -59,7 +59,7 @@ public class NotificationResultTaskTest {
     
     @BeforeEach
     void setup() {
-        List<PreProResource> res = singletonList(new PreProResource("foo", 0, 0));
+        List<PreProNode> res = singletonList(new PreProNode("foo", 0, 0));
         List<SyntaxError> errs = singletonList(new SyntaxError("bar", 0));
         preproResult = new PreProParserResult(snapshot, res, errs);
     }

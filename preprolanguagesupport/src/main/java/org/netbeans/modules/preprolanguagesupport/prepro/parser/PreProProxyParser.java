@@ -9,7 +9,7 @@ import org.netbeans.modules.parsing.api.Task;
 import org.netbeans.modules.parsing.spi.ParseException;
 import org.netbeans.modules.parsing.spi.Parser;
 import org.netbeans.modules.parsing.spi.SourceModificationEvent;
-import org.netbeans.modules.preprolanguagesupport.prepro.PreProResource;
+import org.netbeans.modules.preprolanguagesupport.prepro.PreProNode;
 import org.netbeans.modules.preprolanguagesupport.prepro.grammar.PreProParser;
 
 /**
@@ -36,13 +36,14 @@ public class PreProProxyParser extends Parser {
         ErrorParserListener errorListener = new ErrorParserListener();
         preProParser.addParseListener(listener);
         preProParser.addErrorListener(errorListener);
-        //do the parsing
+        // let antlr generated Parser parse editor input
         preProParser.prepro();
-
-        List<PreProResource> resources = listener.getResources();
+        // get currently parsed section of PrePro
+        List<PreProNode> nodes = listener.getNodes();
+        // retrieve syntax errors from antlr Listener
         List<SyntaxError> errors = errorListener.getSyntaxErrors();
-
-        parserResult = new PreProParserResult(snapshot, resources, errors);
+        // combine everything to PreProParserResult
+        parserResult = new PreProParserResult(snapshot, nodes, errors);
     }
 
     @Override
@@ -61,17 +62,17 @@ public class PreProProxyParser extends Parser {
     public static class PreProParserResult extends Parser.Result {
 
         private boolean valid = true;
-        private final List<PreProResource> resources;
+        private final List<PreProNode> nodes;
         private final List<SyntaxError> errors;
 
-        public PreProParserResult(Snapshot snapshot, List<PreProResource> resources, List<SyntaxError> errors) {
+        public PreProParserResult(Snapshot snapshot, List<PreProNode> nodes, List<SyntaxError> errors) {
             super(snapshot);
-            this.resources = resources;
+            this.nodes = nodes;
             this.errors = errors;
         }
 
-        public List<PreProResource> getResources() {
-            return resources;
+        public List<PreProNode> getResources() {
+            return nodes;
         }
 
         public List<SyntaxError> getErrors() {

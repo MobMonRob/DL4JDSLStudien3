@@ -20,8 +20,6 @@ import org.netbeans.modules.preprolanguagesupport.LookupContext;
  */
 public class NotificationResultTask extends ParserResultTask {
 
-    private static final String LAYER = "prepro";
-
     @Override
     public void run(Parser.Result result, SchedulerEvent se) {
         PreProProxyParser.PreProParserResult preProResult = (PreProProxyParser.PreProParserResult) result;
@@ -43,12 +41,12 @@ public class NotificationResultTask extends ParserResultTask {
     }
 
     void setErrors(Document document, List<ErrorDescription> descriptions) {
-        HintsController.setErrors(document, LAYER, descriptions);
+        HintsController.setErrors(document, "prepro", descriptions);
     }
 
     @Override
     public int getPriority() {
-        return 100; //the lower, the higher the priority
+        return 100;
     }
 
     @Override

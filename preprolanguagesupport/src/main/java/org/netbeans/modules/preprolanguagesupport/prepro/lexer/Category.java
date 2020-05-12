@@ -5,5 +5,5 @@ package org.netbeans.modules.preprolanguagesupport.prepro.lexer;
  * @author paula
  */
 public enum Category {
-    KEYWORD, STRING, TYPE, FIELD, SEPARATOR, VALUE, COMMENT, TEXT, OPERATOR, WS;    
+    KEYWORD, STRING, TYPE, SEPARATOR, VALUE, COMMENT, TEXT, OPERATOR, WS;
 }

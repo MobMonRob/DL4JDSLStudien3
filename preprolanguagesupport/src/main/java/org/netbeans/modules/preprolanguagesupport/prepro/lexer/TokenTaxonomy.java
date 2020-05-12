@@ -31,6 +31,7 @@ public enum TokenTaxonomy {
         }
     }
 
+    //map token to Category
     private String getCategory(int token) {
         Function<Integer, Category> mapping = t -> {
             if (t < PreProLexer.VEC3) {

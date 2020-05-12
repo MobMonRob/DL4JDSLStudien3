@@ -15,8 +15,9 @@ import org.netbeans.modules.preprolanguagesupport.prepro.FileType;
 @MimeRegistration(mimeType = FileType.MIME, service = ParserFactory.class)
 public class PreProParserFactory extends ParserFactory {
 
+    // returns a new PreProProxyParser which will be asked to parse the snapshots
     @Override
-    public Parser createParser(Collection<Snapshot> coll) {
+    public Parser createParser(Collection<Snapshot> snapshots) {
         return new PreProProxyParser(ParserProvider.INSTANCE);
     }
 }
