@@ -1,0 +1,26 @@
+letter = [A-Z] | [a-z] | '_' | '$';
+nonZeroDigit = [1-9];
+digit = [0-9];
+stringChar = everything - ('"' | '\\' | '\r' | '\n');
+type = 'vec3' | 'vec4' | 'mat' | 'mat3' | 'mat4' | 'scal' | 'const';
+
+identifier = letter (letter | digit)*;
+stringLiteral = '"' stringChar* '"';
+numericLiteral = '-'? ('0' | nonZeroDigit digit*) ('.' digit*)?;
+everything = ? everything ?;
+
+factor = identifier | 'exists' '(' identifier ')' | functionCallStatement | throwStatement | '(' expression ')' | numericLiteral;
+term = factor (('*' | '**' | 'X' | '/' | '==' | '<=' | '<' | '>' | '>=' | '&&' | '||') factor)*;
+expression = term ('+' | '-') term)*;
+printStatement = 'print' (expression | stringLiteral);
+throwStatement = 'print' stringLiteral;
+debugStatement = 'debug';
+functionCallStatement = identifier '(' (expression (',' expression)*)? ')';
+assignStatement = type? identifier '=' expression;
+statement = (assignStatement | expression | printStatement | debugStatement) ';';
+functionArguments = (type identifier (',' type identifier)*)?;
+function = 'function' identifier '(' functionArguments ')' ('returns' type)? '{' statement* ('return' expression ';')? '}';
+importDefinitions = ((type identifier | 'optional' type identifier) (',' type identifier | ',' 'optional' type identifier)*)?;
+exportDefinitions = identifier (',' identifier)*;
+mainFunction = 'function' 'main' '(' ')' '{' 'import' importDefinitions ';' statement* 'export' exportDefinitions ';' '}';
+prepro = (mainFunction | function)* | ('import' importDefinitions ';')? statement* ('export' exportDefinitions ';')? function*) EOF;

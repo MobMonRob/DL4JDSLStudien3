@@ -1,0 +1,8 @@
+function main() {
+    vec3 v = import("v");
+    const c = 42;
+
+    print(v);
+    print(c);
+    print("This is a message printed from within PrePro!");
+}

@@ -1,0 +1,14 @@
+function main() {
+    nop();
+    vec3 result = add(import("p1"), import("p2"));
+    nop();
+    export("result", result);
+}
+
+function nop() {
+
+}
+
+function add(vec3 a, vec3 b) returns vec3 {
+    return a + b;
+}

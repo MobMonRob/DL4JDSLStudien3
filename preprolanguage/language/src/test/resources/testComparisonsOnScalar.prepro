@@ -1,0 +1,16 @@
+function main() {
+    scal s1 = import("s1");
+    scal s2 = import("s2");
+
+    scal equal = s1 == s2;
+    scal less = s1 < s2;
+    scal lessOrEqual = s1 <= s2;
+    scal greater = s1 > s2;
+    scal greaterOrEqual = s1 >= s2;
+
+    export("equal", equal);
+    export("less", less);
+    export("lessOrEqual", lessOrEqual);
+    export("greater", greater);
+    export("greaterOrEqual", greaterOrEqual);
+}

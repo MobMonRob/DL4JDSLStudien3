@@ -1,0 +1,26 @@
+function main() {
+    vec3 p1 = import("p1");
+
+    vec3 p1TimesThree = multiplyBy3(p1);
+    vec3 result = subtract(subtract(subtract(p1TimesThree, p1), p1), p1);
+
+    export("result", result);
+}
+
+function multiplyBy3(vec3 p1) returns vec3 {
+	vec3 result = add(double(add(p1, p1)),p1);
+	result = subtract(subtract(result, p1), p1);
+	return result;
+}
+
+function double(vec3 vec) returns vec3 {
+    return add(vec, vec);
+}
+
+function add(vec3 a, vec3 b) returns vec3 {
+    return a + b;
+}
+
+function subtract(vec3 a, vec3 b) returns vec3 {
+    return a - b;
+}

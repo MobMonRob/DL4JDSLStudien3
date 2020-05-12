@@ -1,0 +1,5 @@
+function main() {
+    vec3 p1 = import("p1");
+    vec3 res = p1 * p1;
+    export("res", res);
+}

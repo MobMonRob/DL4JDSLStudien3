@@ -1,0 +1,3 @@
+function main() {
+    throw("This is an exception thrown from within PrePro!");
+}

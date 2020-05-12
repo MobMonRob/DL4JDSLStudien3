@@ -1,0 +1,27 @@
+function main() {
+    const c1 = 1;
+    const c2 = 1;
+
+    const and1 = c1 && c2;
+    const or1 = c1 || c2;
+
+    c2 = 0;
+    const and2 = c1 && c2;
+    const or2 = c1 || c2;
+
+    // Test lazy logic too
+    c1 = 0;
+    c2 = 1;
+    const and3 = c1 && c2;
+    const or3 = c1 || c2;
+
+    const res = 0 && c2 || 1 && c2;
+
+    export("and1", and1);
+    export("or1", or1);
+    export("and2", and2);
+    export("or2", or2);
+    export("and3", and3);
+    export("or3", or3);
+    export("res", res);
+}

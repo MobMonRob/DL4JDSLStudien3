@@ -1,0 +1,18 @@
+function main() {
+	const pi = 3.14;
+    print("PI:");
+	print(pi);
+
+    print("");
+	print("PI incremented by 1:");
+	const newPi = increment(pi) + pi + 3;
+	print(newPi);
+
+	print("");
+    print("1 if variable exists:");
+    print(exists(newPi));
+}
+
+function increment(const varConst) returns const {
+    return varConst + 1;
+}
