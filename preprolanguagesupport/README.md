@@ -6,7 +6,7 @@ Project to create a NetBeans Plugin for file type recognition and syntax highlig
 To create the .nbm file run
 
 ```shell
-mvn package 
+$ mvn package 
 ```
 in the main directory. 
 
@@ -26,12 +26,12 @@ To enable debugging of PrePro-Files in NetBeans you have to install the prepro-c
 
 Install this component with the gu (GraalUpdater) by running the folling command
 ```shell
-gu install -L </path/to/>prepro-component.jar
+$ gu install -L </path/to/>prepro-component.jar
 ```
 
 Check if the component is correctly installed by running 
 ```shell
-gu list
+$ gu list
 ```
 If PrePro is listed everything worked!
 
