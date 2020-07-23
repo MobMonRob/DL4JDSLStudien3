@@ -29,3 +29,7 @@ due to illegal characters in the path when searching for the truffle-api.jar.
 If you are running a Linux system, uncomment the modules "native" and "component" in the top-level pom.xml if you want them to be built by Maven.
 
 The tests can be run in the same way as above, and programs which include interoperability between Java and PrePro can be started in the usual way.
+
+### Tests
+
+The code is tested with with the GraalVM 'graalvm-ce-java8-20.1.0'.
