@@ -32,4 +32,4 @@ The tests can be run in the same way as above, and programs which include intero
 
 ### Tests
 
-The code is tested with with the GraalVM 'graalvm-ce-java11-windows-amd64-20.1.0.zip'.
+The code is tested with with the GraalVM 'graalvm-ce-java11-windows-amd64-20.0.0.zip'. GraalVM 20.1 currently does not work.
