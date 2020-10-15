@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="20.0.0"
+VERSION="20.2.0"
 
 MAIN_CLASS="com.oracle.truffle.prepro.launcher.PreProMain"
 SCRIPT_HOME="$(cd "$(dirname "$0")" && pwd -P)"
@@ -28,7 +28,7 @@ else
         GRAALVM_VERSION=$(grep "GRAALVM_VERSION" "$JAVA_HOME"/release)
         if [[ "$GRAALVM_VERSION" != "" ]]; then
             GRAALVM_VERSION=$(echo "$GRAALVM_VERSION" | awk 'BEGIN {FS="="} {print $2}')
-            if [[ "$GRAALVM_VERSION" != "$VERSION" ]]; then
+            if [[ "$GRAALVM_VERSION" != "\"$VERSION\"" ]]; then
                 echo "Wrong version of GraalVM in \$JAVA_HOME. Expected: $VERSION, found $GRAALVM_VERSION"
                 exit 1
             fi

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 java -cp language/src/main/java/com/oracle/truffle/prepro/parser/antlr/antlr-4.7.2-complete.jar org.antlr.v4.Tool -package com.oracle.truffle.prepro.parser -o language/src/main/java/com/oracle/truffle/prepro/parser -no-listener language/src/main/java/com/oracle/truffle/prepro/parser/PrePro.g4
 mvn -Dmaven.test.skip=true package

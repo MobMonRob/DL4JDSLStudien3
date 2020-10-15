@@ -10,7 +10,7 @@ function main() {
 
 	print("");
     print("1 if variable exists:");
-    print(exists(newPi));
+
 }
 
 function increment(const varConst) returns const {

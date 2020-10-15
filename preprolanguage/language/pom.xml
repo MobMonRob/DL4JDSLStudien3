@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.oracle</groupId>
         <artifactId>simplelanguage-parent</artifactId>
-        <version>20.0.0-SNAPSHOT</version>
+        <version>20.2.0-SNAPSHOT</version>
     </parent>
     <artifactId>prepro</artifactId>
     <profiles>
@@ -72,6 +72,7 @@
                         <include>**/*Test.java</include>
                     </includes>
                     <argLine>-Dgraalvm.locatorDisabled=true ${test.argLine}</argLine>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
             <plugin>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="prepro" />
+        <module name="launcher" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="launcher" target="1.8" />
+      <module name="prepro" target="11" />
+      <module name="simplelanguage-graalvm-component" target="1.5" />
+      <module name="simplelanguage-graalvm-native" target="1.5" />
+      <module name="simplelanguage-parent" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

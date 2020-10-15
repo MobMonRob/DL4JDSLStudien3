@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DL4JDSLStudien2.iml" filepath="$PROJECT_DIR$/DL4JDSLStudien2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preprolanguage/launcher/launcher.iml" filepath="$PROJECT_DIR$/preprolanguage/launcher/launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preprolanguage/language/prepro.iml" filepath="$PROJECT_DIR$/preprolanguage/language/prepro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preprolanguage/simplelanguage-parent.iml" filepath="$PROJECT_DIR$/preprolanguage/simplelanguage-parent.iml" />
     </modules>
   </component>
 </project>
