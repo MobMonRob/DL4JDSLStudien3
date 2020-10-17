@@ -66,6 +66,7 @@ import com.oracle.truffle.prepro.nodes.expression.arithmetic.PreProLessOrEqualNo
 import com.oracle.truffle.prepro.nodes.expression.arithmetic.PreProLessThanNodeGen;
 import com.oracle.truffle.prepro.nodes.expression.arithmetic.PreProMulNodeGen;
 import com.oracle.truffle.prepro.nodes.expression.arithmetic.PreProSubNodeGen;
+import com.oracle.truffle.prepro.nodes.expression.builtin.PreProExistsNode;
 import com.oracle.truffle.prepro.nodes.expression.function.PreProFunctionLiteralNode;
 import com.oracle.truffle.prepro.nodes.expression.function.PreProInvokeNode;
 import com.oracle.truffle.prepro.nodes.expression.function.PreProParenExpressionNode;
@@ -462,6 +463,12 @@ public class PreProNodeFactory {
         srcFromToken(result, literalToken);
         result.addExpressionTag();
         return result;
+    }
+
+    public PreProExpressionNode createExistsExpression(Token nameToken) {
+        final PreProExistsNode preProExistsNode = new PreProExistsNode(nameToken.getText());
+        srcFromToken(preProExistsNode, nameToken);
+        return preProExistsNode;
     }
 
     public PreProExpressionNode createParenExpression(PreProExpressionNode expressionNode, int start, int length) {
