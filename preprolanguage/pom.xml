@@ -8,6 +8,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <m2e.apt.activation>jdt_apt</m2e.apt.activation>
     <graalvm.version>20.2.0</graalvm.version>
+    <antlr.version>4.8</antlr.version>
   </properties>
   <packaging>pom</packaging>
   <modules>
