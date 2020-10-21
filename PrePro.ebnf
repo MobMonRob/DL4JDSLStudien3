@@ -9,7 +9,7 @@ stringLiteral = '"' stringChar* '"';
 numericLiteral = '-'? ('0' | nonZeroDigit digit*) ('.' digit*)?;
 everything = ? everything ?;
 
-factor = identifier | 'exists' '(' identifier ')' | functionCallStatement | throwStatement | '(' expression ')' | numericLiteral;
+factor = identifier | 'exists' identifier | functionCallStatement | throwStatement | '(' expression ')' | numericLiteral;
 term = factor (('*' | '**' | 'X' | '/' | '==' | '<=' | '<' | '>' | '>=' | '&&' | '||') factor)*;
 expression = term ('+' | '-') term)*;
 printStatement = 'print' (expression | stringLiteral);
