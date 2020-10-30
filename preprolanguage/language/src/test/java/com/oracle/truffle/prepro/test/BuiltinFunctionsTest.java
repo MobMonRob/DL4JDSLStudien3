@@ -40,6 +40,8 @@
  */
 package com.oracle.truffle.prepro.test;
 
+import com.oracle.truffle.prepro.PreProPolyglotContext;
+import com.oracle.truffle.prepro.runtime.types.PreProConstant;
 import com.oracle.truffle.prepro.runtime.types.PreProVector3;
 import org.graalvm.polyglot.PolyglotException;
 import org.junit.jupiter.api.DisplayName;
@@ -73,5 +75,15 @@ public class BuiltinFunctionsTest extends PreProAbstractTest {
         String actualMessage = preproException.getMessage();
 
         assertEquals(actualMessage, expectedMessage);
+    }
+
+    @Test
+    public void sinFunctionWorks() {
+        PreProConstant constant = new PreProConstant(Math.PI);
+        final PreProPolyglotContext.PreProPolyglotResult result = context.exportSymbol("c", constant)
+                .eval(ClassLoader.getSystemResource("testBuiltinSinConstant.prepro"));
+
+        final PreProConstant resultConstant = (PreProConstant) result.importSymbol("result");
+        assertEquals(.0d, resultConstant.getDoubleValue(), 1e-6);
     }
 }
