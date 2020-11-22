@@ -131,6 +131,7 @@ public final class PreProContext {
         installBuiltin(PreProImportBuiltinFactory.getInstance());
         installBuiltin(PreProExportBuiltinFactory.getInstance());
         installBuiltin(PreProSinBuiltinFactory.getInstance());
+        installBuiltin(PreProCosBuiltinFactory.getInstance());
     }
 
     private void installBuiltin(NodeFactory<? extends PreProBuiltinNode> factory) {
