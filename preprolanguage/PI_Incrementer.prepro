@@ -19,6 +19,10 @@ function main() {
     print("");
     print("sin(3) = ");
     print(sin(3));
+
+    print("");
+    print("cos(3) = ");
+    print(cos(3));
 }
 
 function increment(const varConst) returns const {
