@@ -1,0 +1,41 @@
+name: CI on Ubuntu Latest
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: ayltai/setup-graalvm@v1
+      with:
+        java-version: 11
+        graalvm-version: 20.2.0
+        native-image: true
+    - name: Set GraalVM Home
+      run: | 
+        echo "GRAALVM_HOME=$JAVA_HOME" >> $GITHUB_ENV
+    - name: Install Linker libs
+      run: |
+        sudo apt update
+        sudo apt-get install build-essential libz-dev zlib1g-dev
+    - uses: actions/checkout@v2
+    - name: Create and list all
+      run: | # 
+        gu list
+        mvn package
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: prepronative
+        path: ./preprolanguage/native/prepronative
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: prepro-component.jar
+        path: ./preprolanguage/component/prepro-component.jar
