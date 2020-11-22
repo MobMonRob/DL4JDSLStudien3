@@ -56,7 +56,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class BuiltinFunctionsTest extends PreProAbstractTest {
 
     @Test
-    @Disabled
+    @Disabled("because the returned value from the constant does not match the expected output")
     public void printFunctionWorks() {
         PreProVector3 v = new PreProVector3(Nd4j.create(new double[]{42, 54, 6, 2, 311, 543, 3455, 7377, 35, 56, 87686, 35765}, new int[]{4, 3}));
         context.exportSymbol("v", v)
