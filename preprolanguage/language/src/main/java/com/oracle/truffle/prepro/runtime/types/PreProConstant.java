@@ -91,7 +91,7 @@ public final class PreProConstant implements TruffleObject {
     @Override
     @TruffleBoundary
     public String toString() {
-        return timeSeries().shapeInfoToString();
+        return Double.toString(getDoubleValue());
     }
 
     @Override

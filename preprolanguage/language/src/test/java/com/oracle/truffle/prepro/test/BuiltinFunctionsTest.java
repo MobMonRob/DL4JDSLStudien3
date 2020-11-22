@@ -44,6 +44,7 @@ import com.oracle.truffle.prepro.PreProPolyglotContext;
 import com.oracle.truffle.prepro.runtime.types.PreProConstant;
 import com.oracle.truffle.prepro.runtime.types.PreProVector3;
 import org.graalvm.polyglot.PolyglotException;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.nd4j.linalg.factory.Nd4j;
@@ -55,6 +56,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class BuiltinFunctionsTest extends PreProAbstractTest {
 
     @Test
+    @Disabled
     public void printFunctionWorks() {
         PreProVector3 v = new PreProVector3(Nd4j.create(new double[]{42, 54, 6, 2, 311, 543, 3455, 7377, 35, 56, 87686, 35765}, new int[]{4, 3}));
         context.exportSymbol("v", v)
