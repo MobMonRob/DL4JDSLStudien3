@@ -26,7 +26,7 @@ jobs:
         sudo apt-get install build-essential libz-dev zlib1g-dev
     - uses: actions/checkout@v2
     - name: Create and list all
-      run: | # 
+      run: |
         gu list
         mvn package
         
