@@ -43,6 +43,7 @@ public final class PreProConstant implements TruffleObject {
         return ndArray.shape()[0];
     }
 
+    @TruffleBoundary
     public double getDoubleValue() {
         return timeSeries().getDouble(0);
     }

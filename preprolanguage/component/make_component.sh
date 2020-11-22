@@ -10,7 +10,7 @@ else
     exit 1
 fi
 readonly COMPONENT_DIR="component_temp_dir"
-readonly LANGUAGE_PATH="$COMPONENT_DIR/$JRE/languages/sl"
+readonly LANGUAGE_PATH="$COMPONENT_DIR/$JRE/languages/prepro"
 if [[ -f ../native/prepronative ]]; then
     INCLUDE_PREPRONATIVE="TRUE"
 fi
@@ -24,7 +24,7 @@ mkdir -p "$LANGUAGE_PATH/launcher"
 cp ../launcher/target/prepro-launcher.jar "$LANGUAGE_PATH/launcher/"
 
 mkdir -p "$LANGUAGE_PATH/bin"
-cp ../sl $LANGUAGE_PATH/bin/
+cp ../prepro $LANGUAGE_PATH/bin/
 if [[ $INCLUDE_PREPRONATIVE = "TRUE" ]]; then
     cp ../native/prepronative $LANGUAGE_PATH/bin/
 fi
@@ -34,7 +34,7 @@ touch "$LANGUAGE_PATH/native-image.properties"
 mkdir -p "$COMPONENT_DIR/META-INF"
 {
     echo "Bundle-Name: PrePro";
-    echo "Bundle-Symbolic-Name: com.oracle.truffle.sl";
+    echo "Bundle-Symbolic-Name: com.oracle.truffle.prepro";
     echo "Bundle-Version: 20.2.0";
     echo 'Bundle-RequireCapability: org.graalvm; filter:="(&(graalvm_version=20.2.0)(os_arch=amd64))"';
     echo "x-GraalVM-Polyglot-Part: True"
