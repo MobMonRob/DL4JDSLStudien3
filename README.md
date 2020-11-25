@@ -1,4 +1,4 @@
-# DL4JDSLStudien2
+# DL4JDSLStudien3
 
 This repository contains the result of a student project, aiming at implementing a DSL (named PrePro) for preprocessing of time series data with the Truffle Lanugage Implementation Framework.
 In addition it contains a NetBeans module to support the usage of PrePro with file type recognition and syntax highlighting. 
