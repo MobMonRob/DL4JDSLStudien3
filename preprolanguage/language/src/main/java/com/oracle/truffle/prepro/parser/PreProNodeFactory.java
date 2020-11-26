@@ -466,7 +466,18 @@ public class PreProNodeFactory {
     }
 
     public PreProExpressionNode createExistsExpression(Token nameToken) {
-        final PreProExistsNode preProExistsNode = new PreProExistsNode(nameToken.getText());
+        final String text = nameToken.getText();
+        LexicalScope lexicalScope = this.lexicalScope;
+        FrameSlot slot = null;
+        do {
+            if(lexicalScope.locals.containsKey(text)) {
+                slot = lexicalScope.locals.get(text);
+                break;
+            }
+            lexicalScope = lexicalScope.outer;
+        } while (lexicalScope != null);
+
+        final PreProExistsNode preProExistsNode = new PreProExistsNode(slot);
         srcFromToken(preProExistsNode, nameToken);
         return preProExistsNode;
     }

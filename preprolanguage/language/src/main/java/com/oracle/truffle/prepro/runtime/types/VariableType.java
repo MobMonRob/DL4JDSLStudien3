@@ -1,6 +1,6 @@
 package com.oracle.truffle.prepro.runtime.types;
 
-import java.util.Arrays;
+import com.oracle.truffle.api.CompilerDirectives;
 
 public enum VariableType {
     VEC3("vec3", PreProVector3.class),
@@ -19,18 +19,25 @@ public enum VariableType {
         this.clazz = clazz;
     }
 
+    
     public static VariableType getTypeForText(String text) {
-        return Arrays.stream(VariableType.values())
-                .filter(type -> type.getText().equals(text))
-                .findAny()
-                .orElseThrow(() -> new RuntimeException("Type " + text + " not known."));
+        for(VariableType type : VariableType.values()) {
+            if(type.getText().equals(text)){
+                return type;
+            }
+        }
+        
+        throw new RuntimeException("Type " + text + " not known.");
     }
 
     public static VariableType getTypeForClass(Class clazz) {
-        return Arrays.stream(VariableType.values())
-                .filter(type -> type.getVariableClass().equals(clazz))
-                .findAny()
-                .orElseThrow(() -> new RuntimeException("Class " + clazz + " not known."));
+        for (VariableType type : VariableType.values()) {
+            if(type.getVariableClass().equals(clazz)){
+                return type;
+            }
+        }
+        
+        throw new RuntimeException("Class " + clazz + " not known.");
     }
 
     public String getText() {

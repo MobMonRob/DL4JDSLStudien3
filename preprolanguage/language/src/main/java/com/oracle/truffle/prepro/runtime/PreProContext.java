@@ -52,12 +52,7 @@ import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.nodes.NodeInfo;
 import com.oracle.truffle.api.source.Source;
 import com.oracle.truffle.prepro.PreProLanguage;
-import com.oracle.truffle.prepro.builtins.PreProBuiltinNode;
-import com.oracle.truffle.prepro.builtins.PreProExportBuiltinFactory;
-import com.oracle.truffle.prepro.builtins.PreProImportBuiltinFactory;
-import com.oracle.truffle.prepro.builtins.PreProPrintBuiltin;
-import com.oracle.truffle.prepro.builtins.PreProPrintBuiltinFactory;
-import com.oracle.truffle.prepro.builtins.PreProThrowBuiltinFactory;
+import com.oracle.truffle.prepro.builtins.*;
 import com.oracle.truffle.prepro.nodes.PreProExpressionNode;
 import com.oracle.truffle.prepro.nodes.PreProRootNode;
 import com.oracle.truffle.prepro.nodes.local.PreProReadArgumentNode;
@@ -135,6 +130,8 @@ public final class PreProContext {
         installBuiltin(PreProThrowBuiltinFactory.getInstance());
         installBuiltin(PreProImportBuiltinFactory.getInstance());
         installBuiltin(PreProExportBuiltinFactory.getInstance());
+        installBuiltin(PreProSinBuiltinFactory.getInstance());
+        installBuiltin(PreProCosBuiltinFactory.getInstance());
     }
 
     private void installBuiltin(NodeFactory<? extends PreProBuiltinNode> factory) {

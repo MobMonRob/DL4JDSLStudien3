@@ -1,2 +1,5 @@
 .idea/libraries/
 .idea/misc.xml
+.idea/uiDesigner.xml
+/preprolanguage/native/prepronative
+/preprolanguage/component/prepro-component.jar

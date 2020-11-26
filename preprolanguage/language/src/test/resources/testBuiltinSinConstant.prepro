@@ -1,0 +1,4 @@
+function main() {
+    const c = import("c");
+    export("result", sin(c));
+}
