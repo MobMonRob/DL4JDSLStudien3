@@ -2,17 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="preprolanguagelauncher" />
         <module name="prepro" />
+        <module name="preprolanguageserver" />
         <module name="launcher" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="languageserver" target="1.5" />
       <module name="launcher" target="1.8" />
       <module name="prepro" target="11" />
+      <module name="preprolanguageclient" target="1.8" />
+      <module name="preprolanguagelauncher" target="1.8" />
+      <module name="preprolanguageserver" target="1.8" />
       <module name="simplelanguage-graalvm-component" target="1.5" />
       <module name="simplelanguage-graalvm-native" target="1.5" />
       <module name="simplelanguage-parent" target="1.5" />

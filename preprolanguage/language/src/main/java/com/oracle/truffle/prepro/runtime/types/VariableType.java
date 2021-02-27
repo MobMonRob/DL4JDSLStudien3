@@ -1,7 +1,5 @@
 package com.oracle.truffle.prepro.runtime.types;
 
-import com.oracle.truffle.api.CompilerDirectives;
-
 public enum VariableType {
     VEC3("vec3", PreProVector3.class),
     VEC4("vec4", PreProVector4.class),
@@ -12,25 +10,24 @@ public enum VariableType {
     CONSTANT("const", PreProConstant.class);
 
     private final String text;
-    private final Class clazz;
+    private final Class<?> clazz;
 
-    VariableType(String text, Class clazz) {
+    VariableType(String text, Class<?> clazz) {
         this.text = text;
         this.clazz = clazz;
     }
 
     
     public static VariableType getTypeForText(String text) {
-        for(VariableType type : VariableType.values()) {
-            if(type.getText().equals(text)){
-                return type;
+        for (VariableType value : VariableType.values()) {
+            if (value.getText().equals(text)) {
+                return value;
             }
         }
-        
         throw new RuntimeException("Type " + text + " not known.");
     }
 
-    public static VariableType getTypeForClass(Class clazz) {
+    public static VariableType getTypeForClass(Class<?> clazz) {
         for (VariableType type : VariableType.values()) {
             if(type.getVariableClass().equals(clazz)){
                 return type;
@@ -44,7 +41,7 @@ public enum VariableType {
         return text;
     }
 
-    public Class getVariableClass() {
+    public Class<?> getVariableClass() {
         return clazz;
     }
 }

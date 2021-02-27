@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-02-19T14:01:48.839293Z</date>
+  <millis>1613743308839</millis>
+  <nanos>293000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>FINE</level>
+  <class>de.dhbw.ka.prepro.lsp.server.PreproLanguageServer</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>&lt;init&gt;</message>
+</record>
+<record>
+  <date>2021-02-19T14:01:48.962746Z</date>
+  <millis>1613743308962</millis>
+  <nanos>746000</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>FINE</level>
+  <class>de.dhbw.ka.prepro.lsp.server.PreproLanguageServer</class>
+  <method>getTextDocumentService</method>
+  <thread>1</thread>
+  <message>getTextDocumentService</message>
+</record>
+<record>
+  <date>2021-02-19T14:01:48.965216Z</date>
+  <millis>1613743308965</millis>
+  <nanos>216000</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>FINE</level>
+  <class>de.dhbw.ka.prepro.lsp.server.PreproLanguageServer</class>
+  <method>getWorkspaceService</method>
+  <thread>1</thread>
+  <message>getWorkspaceService</message>
+</record>
+<record>
+  <date>2021-02-19T14:01:48.974360Z</date>
+  <millis>1613743308974</millis>
+  <nanos>360000</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>FINE</level>
+  <class>de.dhbw.ka.prepro.lsp.server.PreproLanguageServer</class>
+  <method>connect</method>
+  <thread>1</thread>
+  <message>connect(%s)</message>
+  <param>EndpointProxy for org.eclipse.lsp4j.jsonrpc.RemoteEndpoint@3532ec19</param>
+</record>
+<record>
+  <date>2021-02-19T14:01:49.009456Z</date>
+  <millis>1613743309009</millis>
+  <nanos>456000</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>FINE</level>
+  <class>de.dhbw.ka.prepro.lsp.server.PreproLanguageServer</class>
+  <method>initialize</method>
+  <thread>14</thread>
+  <message>Initialize(%s)</message>
+  <param>InitializeParams [
+  workDoneToken = null
+  processId = 0
+  rootPath = "/mnt/wsl/DL4JDSLStudien2/preprolanguage"
+  rootUri = "file:///mnt/wsl/DL4JDSLStudien2/preprolanguage/"
+  initializationOptions = null
+  capabilities = ClientCapabilities [
+    workspace = WorkspaceClientCapabilities [
+      applyEdit = null
+      workspaceEdit = WorkspaceEditCapabilities [
+        documentChanges = true
+        resourceChanges = null
+        resourceOperations = ArrayList (
+          "create",
+          "delete",
+          "rename"
+        )
+        failureHandling = null
+      ]
+      didChangeConfiguration = null
+      didChangeWatchedFiles = null
+      symbol = null
+      executeCommand = null
+      workspaceFolders = null
+      configuration = null
+    ]
+    textDocument = TextDocumentClientCapabilities [
+      synchronization = null
+      completion = null
+      hover = null
+      signatureHelp = null
+      references = null
+      documentHighlight = null
+      documentSymbol = DocumentSymbolCapabilities [
+        symbolKind = SymbolKindCapabilities [
+          valueSet = ArrayList (
+            File,
+            Module,
+            Namespace,
+            Package,
+            Class,
+            Method,
+            Property,
+            Field,
+            Constructor,
+            Enum,
+            Interface,
+            Function,
+            Variable,
+            Constant,
+            String,
+            Number,
+            Boolean,
+            Array,
+            Object,
+            Key,
+            Null,
+            EnumMember,
+            Struct,
+            Event,
+            Operator,
+            TypeParameter
+          )
+        ]
+        hierarchicalDocumentSymbolSupport = true
+        tagSupport = null
+        labelSupport = null
+        dynamicRegistration = null
+      ]
+      formatting = null
+      rangeFormatting = null
+      onTypeFormatting = null
+      declaration = null
+      definition = null
+      typeDefinition = null
+      implementation = null
+      codeAction = null
+      codeLens = null
+      documentLink = null
+      colorProvider = null
+      rename = null
+      publishDiagnostics = null
+      foldingRange = null
+      semanticHighlightingCapabilities = null
+      typeHierarchyCapabilities = null
+      callHierarchy = null
+      selectionRange = null
+      semanticTokens = null
+    ]
+    window = null
+    experimental = null
+  ]
+  clientName = null
+  clientInfo = null
+  trace = null
+  workspaceFolders = null
+]</param>
+</record>
+</log>

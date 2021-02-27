@@ -55,6 +55,7 @@ import com.oracle.truffle.prepro.PreProLanguage;
 import com.oracle.truffle.prepro.builtins.*;
 import com.oracle.truffle.prepro.nodes.PreProExpressionNode;
 import com.oracle.truffle.prepro.nodes.PreProRootNode;
+import com.oracle.truffle.prepro.nodes.expression.builtin.PreProExistsNodeFactory;
 import com.oracle.truffle.prepro.nodes.local.PreProReadArgumentNode;
 import com.oracle.truffle.prepro.runtime.types.PreProConstant;
 import com.oracle.truffle.prepro.runtime.types.PreProMatrix;
@@ -131,6 +132,7 @@ public final class PreProContext {
         installBuiltin(PreProImportBuiltinFactory.getInstance());
         installBuiltin(PreProExportBuiltinFactory.getInstance());
         installBuiltin(PreProSinBuiltinFactory.getInstance());
+        installBuiltin(PreProExistsNodeFactory.getInstance());
     }
 
     private void installBuiltin(NodeFactory<? extends PreProBuiltinNode> factory) {
@@ -216,5 +218,16 @@ public final class PreProContext {
      */
     public Object importSymbol(String symbolName) {
         return env.importSymbol(symbolName);
+    }
+    
+    /**
+     * Used inside PrePro to check if a symbol can be imported
+     */
+    public boolean symbolExists(String symbolName) {
+        try {
+            return importSymbol(symbolName) != null;
+        } catch(Exception ignored) {
+            return false;
+        }
     }
 }

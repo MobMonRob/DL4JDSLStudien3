@@ -8,6 +8,7 @@ import com.oracle.truffle.api.library.ExportLibrary;
 import com.oracle.truffle.api.library.ExportMessage;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
+import org.nd4j.linalg.string.NDArrayStrings;
 
 import java.util.Objects;
 
@@ -91,7 +92,7 @@ public final class PreProConstant implements TruffleObject {
     @Override
     @TruffleBoundary
     public String toString() {
-        return timeSeries().shapeInfoToString();
+        return new NDArrayStrings().format(timeSeries());
     }
 
     @Override

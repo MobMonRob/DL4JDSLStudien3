@@ -5,6 +5,8 @@ import com.oracle.truffle.api.interop.InteropLibrary;
 import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.library.ExportLibrary;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.cpu.nativecpu.NDArray;
+import org.nd4j.linalg.string.NDArrayStrings;
 
 import java.util.Arrays;
 
@@ -37,6 +39,6 @@ public class PreProMatrix3 extends PreProMatrix implements TruffleObject {
     @Override
     @TruffleBoundary
     public String toString() {
-        return timeSeries().shapeInfoToString();
+        return new NDArrayStrings().format(timeSeries());
     }
 }

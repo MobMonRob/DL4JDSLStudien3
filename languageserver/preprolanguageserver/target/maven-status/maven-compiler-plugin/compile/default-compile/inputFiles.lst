@@ -1,0 +1,4 @@
+/development/studienarbeit/languageserver/preprolanguageserver/src/main/java/de/dhbw/ka/prepro/lsp/server/information/ServerInformation.java
+/development/studienarbeit/languageserver/preprolanguageserver/src/main/java/de/dhbw/ka/prepro/lsp/server/services/PreproTextDocumentService.java
+/development/studienarbeit/languageserver/preprolanguageserver/src/main/java/de/dhbw/ka/prepro/lsp/server/services/PreproWorkspaceService.java
+/development/studienarbeit/languageserver/preprolanguageserver/src/main/java/de/dhbw/ka/prepro/lsp/server/PreproLanguageServer.java

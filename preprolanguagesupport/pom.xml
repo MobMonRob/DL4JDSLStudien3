@@ -11,7 +11,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <netbeans.version>RELEASE110</netbeans.version>
-        <antlr.version>4.7.1</antlr.version>
+        <antlr.version>4.7.2</antlr.version>
     </properties>
 
     <build>
@@ -271,6 +271,18 @@
             <artifactId>org-netbeans-spi-editor-hints</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
+        <dependency>
+        <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-lsp-client</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-lsp-client</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

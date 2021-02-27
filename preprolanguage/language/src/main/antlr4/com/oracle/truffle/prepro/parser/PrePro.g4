@@ -226,9 +226,6 @@ IDENTIFIER                                      { PreProExpressionNode assignmen
 | STRING_LITERAL                    { $result = factory.createStringLiteral($STRING_LITERAL, true); }
 | NUMERIC_LITERAL                   { $result = factory.createNumericLiteral($NUMERIC_LITERAL); }
 |
-    EXISTS
-    name = IDENTIFIER               { $result = factory.createExistsExpression($name); }
-|
     s='('
     expr=arithmetic
     e=')'                           { $result = factory.createParenExpression($expr.result, $s.getStartIndex(), $e.getStopIndex() - $s.getStartIndex() + 1); }
@@ -263,7 +260,6 @@ fragment DIGIT : [0-9];
 fragment STRING_CHAR : ~('"' | '\\' | '\r' | '\n');
 
 TYPE : 'vec3' | 'vec4' | 'mat' | 'mat3' | 'mat4' | 'scal' | 'const';
-EXISTS: 'exists';
 
 IDENTIFIER : LETTER (LETTER | DIGIT)*;
 STRING_LITERAL : '"' STRING_CHAR* '"';

@@ -3,8 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DL4JDSLStudien2.iml" filepath="$PROJECT_DIR$/DL4JDSLStudien2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/languageserver/languageserver.iml" filepath="$PROJECT_DIR$/languageserver/languageserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/preprolanguage/launcher/launcher.iml" filepath="$PROJECT_DIR$/preprolanguage/launcher/launcher.iml" />
       <module fileurl="file://$PROJECT_DIR$/preprolanguage/language/prepro.iml" filepath="$PROJECT_DIR$/preprolanguage/language/prepro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/languageserver/launcher/preprolanguagelauncher.iml" filepath="$PROJECT_DIR$/languageserver/launcher/preprolanguagelauncher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/languageserver/preprolanguageserver/preprolanguageserver.iml" filepath="$PROJECT_DIR$/languageserver/preprolanguageserver/preprolanguageserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preprolanguage/component/simplelanguage-graalvm-component.iml" filepath="$PROJECT_DIR$/preprolanguage/component/simplelanguage-graalvm-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preprolanguage/native/simplelanguage-graalvm-native.iml" filepath="$PROJECT_DIR$/preprolanguage/native/simplelanguage-graalvm-native.iml" />
       <module fileurl="file://$PROJECT_DIR$/preprolanguage/simplelanguage-parent.iml" filepath="$PROJECT_DIR$/preprolanguage/simplelanguage-parent.iml" />
     </modules>
   </component>

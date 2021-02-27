@@ -1,0 +1,4 @@
+de/dhbw/ka/prepro/lsp/server/information/ServerInformation.class
+de/dhbw/ka/prepro/lsp/server/services/PreproWorkspaceService.class
+de/dhbw/ka/prepro/lsp/server/PreproLanguageServer.class
+de/dhbw/ka/prepro/lsp/server/services/PreproTextDocumentService.class

@@ -1,0 +1,845 @@
+[Trace - 01:08:57 PM] Sending request 'initialize - (1)'
+Params: {
+  "processId": null,
+  "rootUri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/",
+  "capabilities": {
+    "workspace": {
+      "applyEdit": true,
+      "workspaceEdit": {
+        "documentChanges": true
+      },
+      "didChangeConfiguration": {},
+      "didChangeWatchedFiles": {
+        "dynamicRegistration": true
+      },
+      "symbol": {},
+      "executeCommand": {},
+      "workspaceFolders": false,
+      "configuration": true
+    },
+    "textDocument": {
+      "synchronization": {
+        "willSave": true,
+        "willSaveWaitUntil": true,
+        "didSave": true
+      },
+      "completion": {
+        "completionItem": {
+          "snippetSupport": true
+        }
+      },
+      "hover": {},
+      "signatureHelp": {},
+      "references": {},
+      "documentHighlight": {},
+      "formatting": {},
+      "rangeFormatting": {},
+      "onTypeFormatting": {},
+      "definition": {},
+      "codeAction": {},
+      "rename": {
+        "prepareSupport": true,
+        "dynamicRegistration": false
+      },
+      "semanticHighlightingCapabilities": {
+        "semanticHighlighting": false
+      }
+    }
+  }
+}
+
+
+[Trace - 01:08:59 PM] Received response 'initialize - (1)' in 1515ms
+Result: {
+  "capabilities": {
+    "textDocumentSync": 1,
+    "completionProvider": {}
+  }
+}
+
+
+[Trace - 01:08:59 PM] Sending notification 'initialized'
+Params: {}
+
+
+[Trace - 01:08:59 PM] Sending notification 'textDocument/didOpen'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro",
+    "languageId": "prepro",
+    "version": 0,
+    "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n"
+  }
+}
+
+
+[Trace - 01:09:09 PM] Sending notification 'textDocument/willSave'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "reason": 1
+}
+
+
+[Trace - 01:09:21 PM] Sending notification 'textDocument/willSave'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "reason": 1
+}
+
+
+[Trace - 01:09:25 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///root/.cache/JetBrains/IntelliJIdea2020.3/httpFileSystem/catalog.json",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:09:26 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/.idea/workspace.xml",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:09:44 PM] Sending notification 'textDocument/willSave'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "reason": 1
+}
+
+
+[Trace - 01:09:44 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/.idea/workspace.xml",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:09:44 PM] Sending notification 'textDocument/didClose'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  }
+}
+
+
+[Trace - 01:09:44 PM] Sending request 'shutdown - (2)'
+Params: null
+
+
+[Trace - 01:09:44 PM] Received response 'shutdown - (2)' in 5ms
+Result: null
+
+
+[Trace - 01:10:38 PM] Sending request 'initialize - (1)'
+Params: {
+  "processId": null,
+  "rootUri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/",
+  "capabilities": {
+    "workspace": {
+      "applyEdit": true,
+      "workspaceEdit": {
+        "documentChanges": true
+      },
+      "didChangeConfiguration": {},
+      "didChangeWatchedFiles": {
+        "dynamicRegistration": true
+      },
+      "symbol": {},
+      "executeCommand": {},
+      "workspaceFolders": false,
+      "configuration": true
+    },
+    "textDocument": {
+      "synchronization": {
+        "willSave": true,
+        "willSaveWaitUntil": true,
+        "didSave": true
+      },
+      "completion": {
+        "completionItem": {
+          "snippetSupport": true
+        }
+      },
+      "hover": {},
+      "signatureHelp": {},
+      "references": {},
+      "documentHighlight": {},
+      "formatting": {},
+      "rangeFormatting": {},
+      "onTypeFormatting": {},
+      "definition": {},
+      "codeAction": {},
+      "rename": {
+        "prepareSupport": true,
+        "dynamicRegistration": false
+      },
+      "semanticHighlightingCapabilities": {
+        "semanticHighlighting": false
+      }
+    }
+  }
+}
+
+
+[Trace - 01:10:39 PM] Received response 'initialize - (1)' in 861ms
+Result: {
+  "capabilities": {
+    "textDocumentSync": 1,
+    "completionProvider": {}
+  }
+}
+
+
+[Trace - 01:10:39 PM] Sending notification 'initialized'
+Params: {}
+
+
+[Trace - 01:10:39 PM] Sending notification 'textDocument/didOpen'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro",
+    "languageId": "prepro",
+    "version": 0,
+    "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n"
+  }
+}
+
+
+[Trace - 01:10:48 PM] Sending notification 'textDocument/willSave'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "reason": 1
+}
+
+
+[Trace - 01:11:10 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 1,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n\n"
+    }
+  ]
+}
+
+
+[Trace - 01:11:12 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 2,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\nd\n"
+    }
+  ]
+}
+
+
+[Trace - 01:11:14 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 3,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n\n"
+    }
+  ]
+}
+
+
+[Trace - 01:11:16 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 4,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n"
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/lsp/log/prepro_err_20210122.log",
+      "type": 1
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/sass/lib/sass.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/lib/platform-statistics-devkit.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/java/lib/jdkAnnotations.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/output.log",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/jbr/release",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/NodeJS/lib/NodeJS.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/lib/intellij-xml.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/output.log.lck",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/jsp/lib/jsp-impl.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/Glassfish/lib/glassfishIntegration.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/testng/lib/testng-plugin.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/restClient/lib/restClient.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/restWebServices/lib/rs.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/SpringIntegration/lib/SpringIntegration.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/xpath/lib/xpath.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/JavaEE/lib/javaee-platform.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/Jetty/lib/jettyIntegration.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/maven/lib/maven.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/lsp/log/prepro_out_20210122.log",
+      "type": 1
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/lib/json.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/JBoss/lib/jbossIntegration.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/JSF/lib/jsf-support.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/webSphereIntegration/lib/webSphereIntegration.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/weblogicIntegration/lib/weblogicIntegration.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/BeanValidation/lib/bean_validation.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/WebServices/lib/ws.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/swagger/lib/swagger.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguagesupport/nb-configuration.xml",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/tslint/lib/tslint.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/properties/lib/properties.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/devkit/lib/devkit.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///usr/lib/idea/plugins/Hibernate/lib/hibernate.jar",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:12:24 PM] Sending notification 'workspace/didChangeWatchedFiles'
+Params: {
+  "changes": [
+    {
+      "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/lsp/log/prepro_out_20210106.log",
+      "type": 2
+    }
+  ]
+}
+
+
+[Trace - 01:24:45 PM] Sending request 'textDocument/completion - (2)'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "position": {
+    "line": 25,
+    "character": 1
+  }
+}
+
+
+[Trace - 01:24:45 PM] Received response 'textDocument/completion - (2)' in 22ms
+Result: {
+  "isIncomplete": false,
+  "items": [
+    {
+      "label": "main",
+      "kind": 15,
+      "detail": "Creates main function",
+      "insertText": "function main() {\n\n}"
+    }
+  ]
+}
+
+
+[Trace - 01:24:46 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 5,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n\n"
+    }
+  ]
+}
+
+
+[Trace - 01:24:46 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 6,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n\n\n"
+    }
+  ]
+}
+
+
+[Trace - 01:24:48 PM] Sending request 'textDocument/completion - (3)'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "position": {
+    "line": 27,
+    "character": 0
+  }
+}
+
+
+[Trace - 01:24:48 PM] Received response 'textDocument/completion - (3)' in 2ms
+Result: {
+  "isIncomplete": false,
+  "items": [
+    {
+      "label": "main",
+      "kind": 15,
+      "detail": "Creates main function",
+      "insertText": "function main() {\n\n}"
+    }
+  ]
+}
+
+
+[Trace - 01:24:51 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 7,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n\nfunction main() {\n\n}\n"
+    }
+  ]
+}
+
+
+[Trace - 01:24:53 PM] Sending notification 'textDocument/didChange'
+Params: {
+  "textDocument": {
+    "version": 8,
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "contentChanges": [
+    {
+      "text": "function main() {\n\tconst pi \u003d 3.14;\n    print(\"PI:\");\n\tprint(pi);\n\n    print(\"\");\n\tprint(\"PI incremented by 1:\");\n\tconst newPi \u003d increment(pi) + pi + 3;\n\tprint(newPi);\n\n\tprint(\"\");\n    print(\"1 if variable exists:\");\n    print(exists(\"newPi\"));\n\n    print(\"\");\n    print(\"0 if variable does not exist:\");\n    print(exists(\"anotherVariable\"));\n\n    print(\"\");\n    print(\"sin(3) \u003d \");\n    print(sin(3));\n}\n\nfunction increment(const varConst) returns const {\n    return varConst + 1;\n}\n\n\n"
+    }
+  ]
+}
+
+
+[Trace - 01:24:54 PM] Sending request 'textDocument/completion - (4)'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  },
+  "position": {
+    "line": 27,
+    "character": 0
+  }
+}
+
+
+[Trace - 01:24:54 PM] Received response 'textDocument/completion - (4)' in 1ms
+Result: {
+  "isIncomplete": false,
+  "items": [
+    {
+      "label": "main",
+      "kind": 15,
+      "detail": "Creates main function",
+      "insertText": "function main() {\n\n}"
+    }
+  ]
+}
+
+
+[Trace - 01:41:27 PM] Sending notification 'textDocument/didOpen'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguagesupport/src/main/resources/org/netbeans/modules/preprolanguagesupport/prepro/PreproTemplate.prepro",
+    "languageId": "prepro",
+    "version": 0,
+    "text": "function main(){\n\n}"
+  }
+}
+
+
+[Trace - 01:44:04 PM] Sending notification 'textDocument/didClose'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguage/PI_Incrementer.prepro"
+  }
+}
+
+
+[Trace - 01:44:05 PM] Sending notification 'textDocument/didClose'
+Params: {
+  "textDocument": {
+    "uri": "file:///mnt/c/Dev/Studium/Studienarbeit/DL4JDSLStudien2/preprolanguagesupport/src/main/resources/org/netbeans/modules/preprolanguagesupport/prepro/PreproTemplate.prepro"
+  }
+}
+
+
+[Trace - 01:44:05 PM] Sending request 'shutdown - (5)'
+Params: null
+
+
+[Trace - 01:44:05 PM] Received response 'shutdown - (5)' in 4ms
+Result: null
+
+
