@@ -87,7 +87,11 @@ public final class PreProMain {
         Context context;
         PrintStream err = System.err;
         try {
-            context = Context.newBuilder(PREPRO).in(in).out(out).allowExperimentalOptions(true).options(options).build();
+            context = Context.newBuilder(PREPRO).in(in).out(out)
+                    .allowAllAccess(true)
+                    .allowExperimentalOptions(true)
+                    .options(options)
+                    .build();
         } catch (IllegalArgumentException e) {
             err.println(e.getMessage());
             return 1;

@@ -44,6 +44,8 @@ import com.oracle.truffle.api.frame.FrameSlot;
 import com.oracle.truffle.api.frame.FrameSlotKind;
 import com.oracle.truffle.api.frame.FrameSlotTypeException;
 import com.oracle.truffle.api.frame.VirtualFrame;
+import com.oracle.truffle.api.instrumentation.GenerateWrapper;
+import com.oracle.truffle.api.instrumentation.InstrumentableNode;
 import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.nodes.NodeInfo;
 import com.oracle.truffle.api.nodes.UnexpectedResultException;
@@ -57,8 +59,9 @@ import com.oracle.truffle.prepro.runtime.types.VariableType;
  * Node to write a local variable to a function's {@link VirtualFrame frame}. The Truffle frame API
  * allows to store primitive values of all Java primitive types, and Object values.
  */
+@GenerateWrapper
 @NodeInfo(shortName = "assign", description = "The node implementing an assignment statement")
-public final class PreProWriteLocalVariableNode extends PreProStatementNode {
+public final class PreProWriteLocalVariableNode extends PreProStatementNode{
 
     /**
      * Value to assign the variable. Since PrePro is statically typed, {@link #executeVoid}

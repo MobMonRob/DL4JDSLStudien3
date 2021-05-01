@@ -6,6 +6,10 @@
 package org.netbeans.modules.preprolanguagesupport.lsp;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.netbeans.api.editor.mimelookup.MimeRegistration;
 import org.netbeans.modules.lsp.client.spi.LanguageServerProvider;
 import org.openide.util.Lookup;
@@ -17,15 +21,30 @@ import org.openide.util.Lookup;
 @MimeRegistration(mimeType = org.netbeans.modules.preprolanguagesupport.prepro.FileType.MIME, service = LanguageServerProvider.class)
 public class PreProLSPClient implements LanguageServerProvider {
 
+    private static final Logger logger = Logger.getLogger("PreProLSPClient");
+    
     @Override
     public LanguageServerDescription startServer(Lookup lkp) {
         try {
-            Process process = new ProcessBuilder("java", "-jar", "/development/studienarbeit/languageserver/launcher/target/preprolanguagelauncher.jar").start();
-            return LanguageServerDescription.create(process.getInputStream(), process.getOutputStream(), process);
+            //return getFromJar();
+            return getFromSocket(8123);
         } catch (IOException ex) {
-            ex.printStackTrace();
+            logger.log(Level.SEVERE, "Could not create ServerDescription", ex);
             return null;
         }
+    }
+    
+    private LanguageServerDescription getFromJar() throws IOException {
+        Process process = new ProcessBuilder("java", "-jar", "/development/studienarbeit/languageserver/launcher/target/preprolanguagelauncher.jar").start();
+        return LanguageServerDescription.create(process.getInputStream(), process.getOutputStream(), process);
+    }
+    
+    private LanguageServerDescription getFromSocket(int port) throws IOException {
+        logger.log(Level.SEVERE, "Hello world Auf 127.0.0.1");
+        
+        final Socket socket = new Socket("127.0.0.1", port);
+        return LanguageServerDescription.create(socket.getInputStream(), socket.getOutputStream(), null);
+        
     }
 
 }
