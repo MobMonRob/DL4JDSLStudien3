@@ -32,52 +32,52 @@ import org.openide.windows.TopComponent;
 )
 @ActionReferences({
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "System", id = "org.openide.actions.OpenAction"),
             position = 100,
             separatorAfter = 200
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "Edit", id = "org.openide.actions.CutAction"),
             position = 300
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "Edit", id = "org.openide.actions.CopyAction"),
             position = 400,
             separatorAfter = 500
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "Edit", id = "org.openide.actions.DeleteAction"),
             position = 600
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "System", id = "org.openide.actions.RenameAction"),
             position = 700,
             separatorAfter = 800
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "System", id = "org.openide.actions.SaveAsTemplateAction"),
             position = 900,
             separatorAfter = 1000
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "System", id = "org.openide.actions.FileSystemAction"),
             position = 1100,
             separatorAfter = 1200
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "System", id = "org.openide.actions.ToolsAction"),
             position = 1300
     ),
     @ActionReference(
-            path = "Loaders/text/x-prepro/Actions",
+            path = "Loaders/" + FileType.MIME + "Actions",
             id = @ActionID(category = "System", id = "org.openide.actions.PropertiesAction"),
             position = 1400
     )

@@ -46,6 +46,7 @@ import com.oracle.truffle.api.Scope;
 import com.oracle.truffle.api.Truffle;
 import com.oracle.truffle.api.TruffleLanguage;
 import com.oracle.truffle.api.TruffleLanguage.Env;
+import com.oracle.truffle.api.TruffleLogger;
 import com.oracle.truffle.api.dsl.NodeFactory;
 import com.oracle.truffle.api.frame.FrameDescriptor;
 import com.oracle.truffle.api.interop.TruffleObject;
@@ -63,8 +64,10 @@ import com.oracle.truffle.prepro.runtime.types.PreProScalar;
 import com.oracle.truffle.prepro.runtime.types.PreProVector;
 
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * The run-time state of PrePro during execution. The context is created by the {@link PreProLanguage}. It
@@ -77,12 +80,14 @@ import java.util.List;
 public final class PreProContext {
 
     private static final Source BUILTIN_SOURCE = Source.newBuilder(PreProLanguage.ID, "", "PrePro builtin").build();
+    private static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, PreProContext.class);
+
 
     private final Env env;
     private final PrintWriter output;
     private final PreProFunctionRegistry functionRegistry;
     private final PreProLanguage language;
-    private final Iterable<Scope> topScopes; // Cache the top scopes
+    private final Collection<Scope> topScopes; // Cache the top scopes
 
     public PreProContext(PreProLanguage language, TruffleLanguage.Env env, List<NodeFactory<? extends PreProBuiltinNode>> externalBuiltins) {
         this.env = env;
@@ -119,6 +124,8 @@ public final class PreProContext {
     }
 
     public Iterable<Scope> getTopScopes() {
+        LOG.finer("Calling #getTopScopes, #members in scope:" + topScopes.size());
+        LOG.finest("Members are " + topScopes.stream().map(Scope::getName).collect(Collectors.joining(", ", "[", "]")));
         return topScopes;
     }
 

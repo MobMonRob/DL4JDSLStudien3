@@ -41,6 +41,7 @@
 package com.oracle.truffle.prepro.builtins;
 
 import com.oracle.truffle.api.CompilerDirectives.TruffleBoundary;
+import com.oracle.truffle.api.TruffleLogger;
 import com.oracle.truffle.api.dsl.CachedContext;
 import com.oracle.truffle.api.dsl.Specialization;
 import com.oracle.truffle.api.nodes.NodeInfo;
@@ -60,6 +61,7 @@ import java.io.PrintWriter;
  */
 @NodeInfo(shortName = "print")
 public abstract class PreProPrintBuiltin extends PreProBuiltinNode {
+    private static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, PreProPrintBuiltin.class);
 
     @Specialization
     public double print(double value, @CachedContext(PreProLanguage.class) PreProContext context) {

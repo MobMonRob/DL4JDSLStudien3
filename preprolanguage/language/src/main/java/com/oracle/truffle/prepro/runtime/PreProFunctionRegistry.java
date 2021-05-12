@@ -41,6 +41,7 @@
 package com.oracle.truffle.prepro.runtime;
 
 import com.oracle.truffle.api.RootCallTarget;
+import com.oracle.truffle.api.TruffleLogger;
 import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.source.Source;
 import com.oracle.truffle.prepro.PreProLanguage;
@@ -50,11 +51,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 /**
  * Manages the mapping from function names to {@link PreProFunction function objects}.
  */
 public final class PreProFunctionRegistry {
+    
+    public static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, PreProFunctionRegistry.class);
 
     private final PreProLanguage language;
     private final FunctionsObject functionsObject = new FunctionsObject();
@@ -68,9 +72,12 @@ public final class PreProFunctionRegistry {
      * it is created.
      */
     public PreProFunction lookup(String name, boolean createIfNotPresent) {
+        
+        LOG.log(Level.FINE, "Calling #lookup with name={0}, createIfNotPresent={1}", new Object[]{name, createIfNotPresent});
         PreProFunction result = functionsObject.functions.get(name);
         if (result == null && createIfNotPresent) {
             result = new PreProFunction(language, name);
+            LOG.log(Level.FINER, "Creating function with name={0}", name);
             functionsObject.functions.put(name, result);
         }
         return result;

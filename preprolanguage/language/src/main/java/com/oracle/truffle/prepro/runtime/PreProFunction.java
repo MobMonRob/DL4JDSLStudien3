@@ -109,7 +109,7 @@ public final class PreProFunction implements TruffleObject {
          * We have a new call target. Invalidate all code that speculated that the old call target
          * was stable.
          */
-        LOG.log(Level.FINE, "Installed call target for: {0}", name);
+        LOG.log(Level.FINE, "Installed that call target for: {0}", name);
         callTargetStable.invalidate();
     }
 

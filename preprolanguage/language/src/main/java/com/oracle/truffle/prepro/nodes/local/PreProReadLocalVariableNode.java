@@ -46,6 +46,8 @@ import com.oracle.truffle.api.dsl.Specialization;
 import com.oracle.truffle.api.frame.FrameSlot;
 import com.oracle.truffle.api.frame.FrameUtil;
 import com.oracle.truffle.api.frame.VirtualFrame;
+import com.oracle.truffle.api.instrumentation.StandardTags;
+import com.oracle.truffle.api.instrumentation.Tag;
 import com.oracle.truffle.prepro.nodes.PreProExpressionNode;
 
 /**
@@ -90,4 +92,11 @@ public abstract class PreProReadLocalVariableNode extends PreProExpressionNode {
 
         return FrameUtil.getObjectSafe(frame, getSlot());
     }
+
+    @Override
+    public boolean hasTag(Class<? extends Tag> tag) {
+        return tag == StandardTags.ReadVariableTag.class || super.hasTag(tag);
+    }
+    
+    
 }

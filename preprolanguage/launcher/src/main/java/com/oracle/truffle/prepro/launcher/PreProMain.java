@@ -55,7 +55,8 @@ import java.util.Map;
 
 public final class PreProMain {
 
-    private static final String PREPRO = "prepro";
+    //Change back to "prepro" when changed in PreProLanguage
+    private static final String PREPRO = "application/x-prepro";  
 
     /**
      * The main entry point.

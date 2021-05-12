@@ -6,19 +6,19 @@
 package org.netbeans.modules.preprolanguagesupport.lsp;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.netbeans.api.editor.mimelookup.MimeRegistration;
 import org.netbeans.modules.lsp.client.spi.LanguageServerProvider;
+import org.netbeans.modules.preprolanguagesupport.prepro.FileType;
 import org.openide.util.Lookup;
 
 /**
  *
  * @author root
  */
-@MimeRegistration(mimeType = org.netbeans.modules.preprolanguagesupport.prepro.FileType.MIME, service = LanguageServerProvider.class)
+@MimeRegistration(mimeType = FileType.MIME, service = LanguageServerProvider.class)
 public class PreProLSPClient implements LanguageServerProvider {
 
     private static final Logger logger = Logger.getLogger("PreProLSPClient");
@@ -40,7 +40,7 @@ public class PreProLSPClient implements LanguageServerProvider {
     }
     
     private LanguageServerDescription getFromSocket(int port) throws IOException {
-        logger.log(Level.SEVERE, "Hello world Auf 127.0.0.1");
+        logger.log(Level.INFO, "Hello world Auf 127.0.0.1");
         
         final Socket socket = new Socket("127.0.0.1", port);
         return LanguageServerDescription.create(socket.getInputStream(), socket.getOutputStream(), null);

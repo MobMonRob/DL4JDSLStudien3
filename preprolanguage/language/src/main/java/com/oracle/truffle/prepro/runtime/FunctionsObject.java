@@ -45,16 +45,22 @@ import java.util.Map;
 
 import com.oracle.truffle.api.CompilerDirectives;
 import com.oracle.truffle.api.CompilerDirectives.TruffleBoundary;
+import com.oracle.truffle.api.TruffleLogger;
 import com.oracle.truffle.api.interop.InteropLibrary;
 import com.oracle.truffle.api.interop.InvalidArrayIndexException;
 import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.library.ExportLibrary;
 import com.oracle.truffle.api.library.ExportMessage;
+import com.oracle.truffle.prepro.PreProLanguage;
+import java.util.Arrays;
+import java.util.logging.Level;
 
 @ExportLibrary(InteropLibrary.class)
 @SuppressWarnings("static-method")
 final class FunctionsObject implements TruffleObject {
 
+    private static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, FunctionsObject.class);
+    
     final Map<String, PreProFunction> functions = new HashMap<>();
 
     FunctionsObject() {
@@ -62,24 +68,29 @@ final class FunctionsObject implements TruffleObject {
 
     @ExportMessage
     boolean hasMembers() {
+        LOG.finer("Calling #hasMembers");
         return true;
     }
 
     @ExportMessage
     @TruffleBoundary
     Object readMember(String member) {
+        LOG.finer("Calling #readMembers with member=" + member);
+        LOG.log(Level.FINEST, "Stacktrace", new Exception("Just to log StackTrace"));
         return functions.get(member);
     }
 
     @ExportMessage
     @TruffleBoundary
     boolean isMemberReadable(String member) {
+        LOG.finer("Calling #isMemberReadable with member=" + member);
         return functions.containsKey(member);
     }
 
     @ExportMessage
     @TruffleBoundary
     Object getMembers(@SuppressWarnings("unused") boolean includeInternal) {
+        LOG.finer("Calling #getMembers with internal=" + includeInternal);
         return new FunctionNamesObject(functions.keySet().toArray());
     }
 
@@ -90,19 +101,24 @@ final class FunctionsObject implements TruffleObject {
     @ExportLibrary(InteropLibrary.class)
     static final class FunctionNamesObject implements TruffleObject {
 
+        private static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, FunctionNamesObject.class);
+        
         private final Object[] names;
 
         FunctionNamesObject(Object[] names) {
+            LOG.fine("Creating FunctionNamesObject with names=" + Arrays.toString(names));
             this.names = names;
         }
 
         @ExportMessage
         boolean hasArrayElements() {
+            LOG.finer("#hasArrayElements");
             return true;
         }
 
         @ExportMessage
         boolean isArrayElementReadable(long index) {
+            LOG.finer("#hasArrayElements with index=" + index);
             return index >= 0 && index < names.length;
         }
 
@@ -113,6 +129,7 @@ final class FunctionsObject implements TruffleObject {
 
         @ExportMessage
         Object readArrayElement(long index) throws InvalidArrayIndexException {
+            LOG.finer("#readArrayElement with index=" + index);
             if (!isArrayElementReadable(index)) {
                 CompilerDirectives.transferToInterpreter();
                 throw InvalidArrayIndexException.create(index);

@@ -6,6 +6,7 @@ import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.interop.UnsupportedMessageException;
 import com.oracle.truffle.api.library.ExportLibrary;
 import com.oracle.truffle.api.library.ExportMessage;
+import java.util.Arrays;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.string.NDArrayStrings;
@@ -44,6 +45,26 @@ public final class PreProConstant implements TruffleObject {
         return ndArray.shape()[0];
     }
 
+    @ExportMessage
+    public boolean hasMembers() {
+        return true;
+    }
+    
+    @ExportMessage
+    public Object getMembers(boolean internal) {
+        return Arrays.asList("+", "-");
+    }
+    
+    @ExportMessage
+    public boolean isMemberReadable(String key) {
+        return key.equals("+");
+    }
+    
+    @ExportMessage
+    public Object readMember(String key) {
+        return this;
+    }
+    
     @TruffleBoundary
     public double getDoubleValue() {
         return timeSeries().getDouble(0);

@@ -10,5 +10,5 @@ public interface FileType {
     @StaticResource
     String ICON = "org/netbeans/modules/preprolanguagesupport/prepro/PreProIcon.png";
     
-    String MIME = "text/x-prepro";
+    String MIME = "application/x-prepro";
 }

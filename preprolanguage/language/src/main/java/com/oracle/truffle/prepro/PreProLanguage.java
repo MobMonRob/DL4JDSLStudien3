@@ -47,6 +47,7 @@ import com.oracle.truffle.api.Scope;
 import com.oracle.truffle.api.Truffle;
 import com.oracle.truffle.api.TruffleLanguage;
 import com.oracle.truffle.api.TruffleLanguage.ContextPolicy;
+import com.oracle.truffle.api.TruffleLogger;
 import com.oracle.truffle.api.debug.DebuggerTags;
 import com.oracle.truffle.api.dsl.NodeFactory;
 import com.oracle.truffle.api.frame.Frame;
@@ -170,13 +171,27 @@ import java.util.NoSuchElementException;
  * </ul>
  */
 @TruffleLanguage.Registration(id = PreProLanguage.ID, name = "PrePro", defaultMimeType = PreProLanguage.MIME_TYPE, characterMimeTypes = PreProLanguage.MIME_TYPE, contextPolicy = ContextPolicy.SHARED, fileTypeDetectors = PreProFileDetector.class)
-@ProvidedTags({StandardTags.CallTag.class, StandardTags.StatementTag.class, StandardTags.RootTag.class, StandardTags.RootBodyTag.class, StandardTags.ExpressionTag.class,
-        DebuggerTags.AlwaysHalt.class})
+@ProvidedTags({
+    StandardTags.CallTag.class, 
+    StandardTags.StatementTag.class, 
+    StandardTags.RootTag.class, 
+    StandardTags.RootBodyTag.class, 
+    StandardTags.ExpressionTag.class,
+    StandardTags.ReadVariableTag.class,
+    StandardTags.WriteVariableTag.class,
+    DebuggerTags.AlwaysHalt.class
+})
 public final class PreProLanguage extends TruffleLanguage<PreProContext> {
     public static volatile int counter;
 
-    public static final String ID = "prepro";
     public static final String MIME_TYPE = "application/x-prepro";
+    //Changed to the same as the MIME Type, since NetBeans sends the MIME Type as languageID...
+    //Otherwise the LSP support won't work, change back to "prepro" afterwards.
+    //When changed, also change in the PreProMain
+    public static final String ID = MIME_TYPE; 
+    
+    
+    private static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, PreProLanguage.class);
 
     public PreProLanguage() {
         int tempCounter = counter;
@@ -185,11 +200,13 @@ public final class PreProLanguage extends TruffleLanguage<PreProContext> {
 
     @Override
     protected PreProContext createContext(Env env) {
+        LOG.finer("Entered #createContext");
         return new PreProContext(this, env, new ArrayList<>(EXTERNAL_BUILTINS));
     }
 
     @Override
     protected CallTarget parse(ParsingRequest request) {
+        LOG.finer("Entered #parse");
         Source source = request.getSource();
         Map<String, RootCallTarget> functions;
         /*
@@ -243,16 +260,19 @@ public final class PreProLanguage extends TruffleLanguage<PreProContext> {
     @SuppressWarnings("deprecation")
     @Override
     protected Object findExportedSymbol(PreProContext context, String globalName, boolean onlyExplicit) {
+        LOG.finer("Entered #findExportedSymbol");
         return context.getFunctionRegistry().lookup(globalName, false);
     }
 
     @Override
     protected boolean isVisible(PreProContext context, Object value) {
+        LOG.finer("Entered #isVisible");
         return !InteropLibrary.getFactory().getUncached(value).isNull(value);
     }
 
     @Override
     protected boolean isObjectOfLanguage(Object object) {
+        LOG.finer("Entered #isObjectOfLanguage");
         if (!(object instanceof TruffleObject)) {
             return false;
         } else return object instanceof PreProConstant || object instanceof PreProScalar
@@ -334,53 +354,64 @@ public final class PreProLanguage extends TruffleLanguage<PreProContext> {
 
     @Override
     protected SourceSection findSourceLocation(PreProContext context, Object value) {
+        LOG.finer("Entered #findSourceLocation");
         if (value instanceof PreProFunction) {
             return ((PreProFunction) value).getDeclaredLocation();
         }
+        LOG.finer("Returned null for #findSourceLocation");
         return null;
     }
 
     @Override
     public Iterable<Scope> findLocalScopes(PreProContext context, Node node, Frame frame) {
+        LOG.finer("Entered #findLocalScopes");
         final PreProLexicalScope scope = PreProLexicalScope.createScope(node);
-        return () -> new Iterator<>() {
-            private PreProLexicalScope previousScope;
-            private PreProLexicalScope nextScope = scope;
-
+        return new Iterable<Scope>() {
             @Override
-            public boolean hasNext() {
-                if (nextScope == null) {
-                    nextScope = previousScope.findParent();
-                }
-                return nextScope != null;
-            }
+            public Iterator<Scope> iterator() {
+                return new Iterator<>() {
+                    
+                    private PreProLexicalScope previousScope;
+                    private PreProLexicalScope nextScope = scope;
 
-            @Override
-            public Scope next() {
-                if (!hasNext()) {
-                    throw new NoSuchElementException();
-                }
-                Object functionObject = findFunctionObject();
-                Scope vscope = Scope.newBuilder(nextScope.getName(), nextScope.getVariables(frame)).node(nextScope.getNode()).arguments(nextScope.getArguments(frame)).rootInstance(
-                        functionObject).build();
-                previousScope = nextScope;
-                nextScope = null;
-                return vscope;
-            }
+                    @Override
+                    public boolean hasNext() {
+                        if (nextScope == null) {
+                            nextScope = previousScope.findParent();
+                        }
+                        return nextScope != null;
+                    }
 
-            private Object findFunctionObject() {
-                String name = node.getRootNode().getName();
-                return context.getFunctionRegistry().getFunction(name);
+                    @Override
+                    public Scope next() {
+                        if (!hasNext()) {
+                            throw new NoSuchElementException();
+                        }
+                        Object functionObject = findFunctionObject();
+                        Scope vscope = Scope.newBuilder(nextScope.getName(), nextScope.getVariables(frame)).node(nextScope.getNode()).arguments(nextScope.getArguments(frame)).rootInstance(
+                                functionObject).build();
+                        previousScope = nextScope;
+                        nextScope = null;
+                        return vscope;
+                    }
+
+                    private Object findFunctionObject() {
+                        String name = node.getRootNode().getName();
+                        return context.getFunctionRegistry().getFunction(name);
+                    }
+                };
             }
         };
     }
 
     @Override
     protected Iterable<Scope> findTopScopes(PreProContext context) {
+        LOG.finer("Endered #FindTopScopes");
         return context.getTopScopes();
     }
 
     public static PreProContext getCurrentContext() {
+        LOG.finer("Endered getCurrentContext");
         return getCurrentContext(PreProLanguage.class);
     }
 

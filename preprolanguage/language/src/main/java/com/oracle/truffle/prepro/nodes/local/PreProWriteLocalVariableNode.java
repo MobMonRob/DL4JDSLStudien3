@@ -46,6 +46,9 @@ import com.oracle.truffle.api.frame.FrameSlotTypeException;
 import com.oracle.truffle.api.frame.VirtualFrame;
 import com.oracle.truffle.api.instrumentation.GenerateWrapper;
 import com.oracle.truffle.api.instrumentation.InstrumentableNode;
+import com.oracle.truffle.api.instrumentation.ProbeNode;
+import com.oracle.truffle.api.instrumentation.StandardTags;
+import com.oracle.truffle.api.instrumentation.Tag;
 import com.oracle.truffle.api.interop.TruffleObject;
 import com.oracle.truffle.api.nodes.NodeInfo;
 import com.oracle.truffle.api.nodes.UnexpectedResultException;
@@ -59,10 +62,10 @@ import com.oracle.truffle.prepro.runtime.types.VariableType;
  * Node to write a local variable to a function's {@link VirtualFrame frame}. The Truffle frame API
  * allows to store primitive values of all Java primitive types, and Object values.
  */
-@GenerateWrapper
+
 @NodeInfo(shortName = "assign", description = "The node implementing an assignment statement")
 public final class PreProWriteLocalVariableNode extends PreProStatementNode{
-
+    
     /**
      * Value to assign the variable. Since PrePro is statically typed, {@link #executeVoid}
      * will throw a type assignment error if types are not compatible.
@@ -75,7 +78,7 @@ public final class PreProWriteLocalVariableNode extends PreProStatementNode{
      */
     private String type;
 
-    private FrameSlot frameSlot;
+    private final FrameSlot frameSlot;
 
     public PreProWriteLocalVariableNode(FrameSlot frameSlot, String type, PreProExpressionNode valueNode) {
         this.frameSlot = frameSlot;
@@ -165,4 +168,11 @@ public final class PreProWriteLocalVariableNode extends PreProStatementNode{
     FrameSlot getSlot() {
         return this.frameSlot;
     }
+
+    @Override
+    public boolean hasTag(Class<? extends Tag> tag) {
+        return tag == StandardTags.WriteVariableTag.class || super.hasTag(tag);
+    }
+    
+    
 }
