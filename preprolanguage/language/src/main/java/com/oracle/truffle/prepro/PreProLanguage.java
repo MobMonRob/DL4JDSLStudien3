@@ -185,10 +185,7 @@ public final class PreProLanguage extends TruffleLanguage<PreProContext> {
     public static volatile int counter;
 
     public static final String MIME_TYPE = "application/x-prepro";
-    //Changed to the same as the MIME Type, since NetBeans sends the MIME Type as languageID...
-    //Otherwise the LSP support won't work, change back to "prepro" afterwards.
-    //When changed, also change in the PreProMain
-    public static final String ID = MIME_TYPE; 
+    public static final String ID = "prepro"; 
     
     
     private static final TruffleLogger LOG = TruffleLogger.getLogger(PreProLanguage.ID, PreProLanguage.class);

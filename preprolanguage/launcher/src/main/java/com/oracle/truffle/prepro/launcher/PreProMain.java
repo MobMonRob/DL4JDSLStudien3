@@ -52,14 +52,17 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
+import org.graalvm.polyglot.Engine;
 
 public final class PreProMain {
 
-    //Change back to "prepro" when changed in PreProLanguage
-    private static final String PREPRO = "application/x-prepro";  
+    private static final String PREPRO = "prepro";  
 
     /**
      * The main entry point.
+     * 
+     * @param args The provided Program arguments, should contain a source file path and environment options
+     * @throws java.io.IOException Thrown if the file cannot be read
      */
     public static void main(String[] args) throws IOException {
         Source source;
@@ -72,6 +75,8 @@ public final class PreProMain {
                 }
             }
         }
+        
+
 
         if (file == null) {
             // @formatter:off
@@ -81,10 +86,11 @@ public final class PreProMain {
             source = Source.newBuilder(PREPRO, new File(file)).build();
         }
 
-        System.exit(executeSource(source, System.in, System.out, options));
+        executeSource(source, System.in, System.out, options)
+                .exitIfRequired();
     }
 
-    private static int executeSource(Source source, InputStream in, PrintStream out, Map<String, String> options) {
+    private static ExecutionResult executeSource(Source source, InputStream in, PrintStream out, Map<String, String> options) {
         Context context;
         PrintStream err = System.err;
         try {
@@ -95,33 +101,50 @@ public final class PreProMain {
                     .build();
         } catch (IllegalArgumentException e) {
             err.println(e.getMessage());
-            return 1;
+            return ExecutionResult.failure();
         }
-        out.println("== running on " + context.getEngine());
-
+       
+        final Engine engine = context.getEngine();
+        out.printf("== running on %s on version %s%n", engine.getImplementationName(), engine.getVersion());
+        if(Boolean.valueOf(options.getOrDefault("lsp", "false"))) {
+            System.out.println("Skipping Script Execution due to running the LSP");
+            return ExecutionResult.doContinue();
+        }
+        
         try {
             Value result = context.eval(source);
             if (context.getBindings(PREPRO).getMember("main") == null) {
                 err.println("No function main() defined in PrePro source file.");
-                return 1;
+                return ExecutionResult.failure();
             }
             if (!result.isNull()) {
                 out.println(result.toString());
             }
-            return 0;
+            return ExecutionResult.success();
         } catch (PolyglotException ex) {
             if (ex.isInternalError()) {
                 // for internal errors we print the full stack trace
-                ex.printStackTrace();
+                ex.printStackTrace(err);
             } else {
                 err.println(ex.getMessage());
             }
-            return 1;
+            return ExecutionResult.failure();
         } finally {
             context.close();
         }
     }
 
+    /**
+     * Tries to parse the given {@code arg} String as an environmental option.
+     * If it succeeds, then it will add the option to the provided {@code options} parameter.
+     * 
+     * Can fail, for example, if the argument is the name of the file to be executed.
+     * In that case, the method will return {@code false}.
+     * 
+     * @param options The option list where the parsed option will be added to
+     * @param arg The argument to parse to an option
+     * @return Whether or not it was possible to parse the argument as an option.
+     */
     private static boolean parseOption(Map<String, String> options, String arg) {
         if (arg.length() <= 2 || !arg.startsWith("--")) {
             return false;

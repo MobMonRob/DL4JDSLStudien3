@@ -26,8 +26,8 @@ public class PreProLSPClient implements LanguageServerProvider {
     @Override
     public LanguageServerDescription startServer(Lookup lkp) {
         try {
-            //return getFromJar();
-            return getFromSocket(8123);
+            return getFromJar();
+            //return getFromSocket(8123);
         } catch (IOException ex) {
             logger.log(Level.SEVERE, "Could not create ServerDescription", ex);
             return null;
