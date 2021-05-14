@@ -15,7 +15,7 @@ public class PreProMatrix3 extends PreProMatrix implements TruffleObject {
 
     public PreProMatrix3(INDArray ndArray) {
         super(ndArray);
-        if (ndArray.shape()[0] != 4 || ndArray.shape()[1] != 3) {
+        if (ndArray.shape()[0] != 3 || ndArray.shape()[1] != 3) {
             throw new RuntimeException("The given Matrix3 has the shape "
                     + Arrays.toString(ndArray.shape()) + ", must be [3,3].");
         }

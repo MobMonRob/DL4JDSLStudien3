@@ -44,26 +44,6 @@ public final class PreProConstant implements TruffleObject {
     public int amountTimeElements() {
         return ndArray.shape()[0];
     }
-
-    @ExportMessage
-    public boolean hasMembers() {
-        return true;
-    }
-    
-    @ExportMessage
-    public Object getMembers(boolean internal) {
-        return Arrays.asList("+", "-");
-    }
-    
-    @ExportMessage
-    public boolean isMemberReadable(String key) {
-        return key.equals("+");
-    }
-    
-    @ExportMessage
-    public Object readMember(String key) {
-        return this;
-    }
     
     @TruffleBoundary
     public double getDoubleValue() {

@@ -9,16 +9,17 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.netbeans.api.editor.mimelookup.MimeRegistration;
+//import org.netbeans.api.editor.mimelookup.MimeRegistration;
 import org.netbeans.modules.lsp.client.spi.LanguageServerProvider;
-import org.netbeans.modules.preprolanguagesupport.prepro.FileType;
+//import org.netbeans.modules.preprolanguagesupport.prepro.FileType;
 import org.openide.util.Lookup;
 
 /**
  *
  * @author root
  */
-@MimeRegistration(mimeType = FileType.MIME, service = LanguageServerProvider.class)
+//Uncomment to let the plugin talk to the LSP Server again
+//@MimeRegistration(mimeType = FileType.MIME, service = LanguageServerProvider.class)
 public class PreProLSPClient implements LanguageServerProvider {
 
     private static final Logger logger = Logger.getLogger("PreProLSPClient");
@@ -26,8 +27,8 @@ public class PreProLSPClient implements LanguageServerProvider {
     @Override
     public LanguageServerDescription startServer(Lookup lkp) {
         try {
-            return getFromJar();
-            //return getFromSocket(8123);
+            //return getFromJar();
+            return getFromSocket(8123);
         } catch (IOException ex) {
             logger.log(Level.SEVERE, "Could not create ServerDescription", ex);
             return null;
